@@ -1,0 +1,114 @@
+﻿<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Flatfy Free Flat and Responsive HTML5 Template ">
+    <meta name="author" content="">
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/css-site/bootstrap.min.css" rel="stylesheet">
+
+    <link href="~/Content/css-site/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+
+    <link href="~/Content/css-site/general.css" rel="stylesheet">
+
+    <link href="~/Content/css-site/custom.css" rel="stylesheet">
+    <link href="~/Content/css-site/owl.carousel.css" rel="stylesheet">
+    <link href="~/Content/css-site/owl.theme.css" rel="stylesheet">
+    <link href="~/Content/css-site/style.css" rel="stylesheet">
+    <link href="~/Content/css-site/animate.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Content/css-site/magnific-popup.css">
+    <script src="~/Scripts/scripts-site/modernizr-2.6.2.min.js"></script>
+</head>
+<body id="home">
+    <div id="preloader">
+        <div id="status"></div>
+    </div>
+
+    <div class="intro-header">
+        <div class="col-xs-12 text-center abcen1">
+            <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">BIBLIOTECA</h1>
+            <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">ON-LINE</h3>
+        </div>
+
+        <div class="col-xs-12 text-center abcen wow fadeIn">
+            <div class="button_down ">
+                <a class="imgcircle wow bounceInUp" data-wow-duration="1.5s" href="#whatis"> <img class="img_scroll" src="http://www.andreagalanti.it/lab/flatfy/img/icon/circle.png" alt=""> </a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#home">Biblioteca</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="menuItem"><a href="#whatis">Inicio</a></li>
+                    <li class="menuItem"><a href="#contact">Contato</a></li>
+                    <li class="menuItem"><a href="@Url.Action("index", "login")">Administrativo</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <!-- End Login box -->
+
+    @*<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="footer-title">UNIP</h3>
+                    <p id="footer-text"><small>Copyright &copy; 2015 Todos os direitos são reservados.</small></p>
+                </div>
+            </div>
+        </div>
+    </footer>*@
+
+    <script src="~/Scripts/scripts-site/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/scripts-site/bootstrap.js"></script>
+    <script src="~/Scripts/scripts-site/owl.carousel.js"></script>
+    <script src="~/Scripts/scripts-site/script.js"></script>
+
+    <script src="~/Scripts/scripts-site/stickUp.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $(document).ready(function () {
+                $('.navbar-default').stickUp();
+
+            });
+        });
+
+    </script>
+
+    @*<script type="text/javascript" src="~/Scripts/scripts-site/jquery.corner.js"></script>*@
+    <script src="~/Scripts/scripts-site/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="~/Scripts/scripts-site/classie.js"></script>
+    <script src="~/Scripts/scripts-site/uiMorphingButton_inflow.js"></script>
+
+    <script src="~/Scripts/scripts-site/jquery.magnific-popup.js"></script>
+</body>
+</html>
+

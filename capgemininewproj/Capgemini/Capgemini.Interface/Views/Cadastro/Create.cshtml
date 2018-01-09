@@ -1,0 +1,142 @@
+﻿@model  Capgemini.Interface.Models.Cadastro
+@{
+    //ViewBag.Title = "Cadastro de Usuário";
+
+    <style>
+        #example_length {
+            display: none !important;
+        }
+
+        .dataTables_filter {
+            display: none !important;
+        }
+
+        .erro-alert-nome {
+            display: none;
+        }
+
+        .erro-alert {
+            display: block;
+        }
+
+        .dataTables_length {
+            display: none;
+        }
+    </style>
+}
+
+@*<h2>@ViewBag.Title</h2>*@
+
+@*<blockquote>
+        <p>@ViewBag.Title</p>
+        <small>Bem <cite title="Source Title"> Vindo!!!</cite></small>
+    </blockquote>*@
+<hr />
+
+@using (Html.BeginForm("create", "cadastro", FormMethod.Post, new { @class = "form-horizontal", id = "formCadastro", name = "formCadastro" }))
+{
+    if (TempData["msgerror"] != null)
+    {
+        <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            @TempData["msgerror"]
+        </div>
+    }
+    else if (TempData["msgsucesso"] != null)
+    {
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            @TempData["msgsucesso"]
+        </div>
+    }
+    else if (TempData["msgalerta"] != null)
+    {
+        <div class="alert alert-dismissible alert-warning">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            @TempData["msgalerta"]
+        </div>
+    }
+    else if (!ViewContext.ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-dismissible alert-warning">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            @Html.ValidationSummary()
+        </div>
+    }
+
+    <div class="form-group">
+        <div class="form-group">
+            @Html.LabelFor(x => x.PrimeiroNome, new { @class = "col-lg-2 control-label", @for = "Primeiro Nome" })
+            <div class="col-lg-4">
+                @Html.TextBoxFor(x => x.PrimeiroNome, new { @class = "form-control", @required = "required", @placeholder = "Primeiro Nome" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.UltimoNome, new { @class = "col-lg-2 control-label", @for = "Ultimo Nome" })
+            <div class="col-lg-4">
+                @Html.TextBoxFor(x => x.UltimoNome, new { @class = "form-control", @required = "required", @placeholder = "Ultimo Nome" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Cpf, new { @class = "col-lg-2 control-label", @for = "Cpf" })
+            <div class="col-lg-4">
+                @Html.TextBoxFor(x => x.Cpf, new { @class = "form-control", @required = "required", @placeholder = "Cpf", @onblur = "ValidarCPF(formCadastro.Cpf);", @onchange = "MascaraCPF(formCadastro.Cpf);", @maxlength = "11" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Email, new { @class = "col-lg-2 control-label", @for = "Email" })
+            <div class="col-lg-4">
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @required = "required", @placeholder = "Email", @type = "email" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Senha, new { @class = "col-lg-2 control-label", @for = "Senha" })
+            <div class="col-lg-4">
+                @Html.PasswordFor(x => x.Senha, new { @class = "form-control", @required = "required", @placeholder = "Senha" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Endereco, new { @class = "col-lg-2 control-label", @for = "Endereco" })
+            <div class="col-lg-4">
+                @Html.TextBoxFor(x => x.Endereco, new { @class = "form-control", @required = "required", @placeholder = "Endereco" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Rua, new { @class = "col-lg-2 control-label", @for = "Rua" })
+            <div class="col-lg-4">
+                @Html.TextBoxFor(x => x.Rua, new { @class = "form-control", @required = "required", @placeholder = "Rua" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Complemento, new { @class = "col-lg-2 control-label", @for = "Complemento" })
+            <div class="col-lg-4">
+                @Html.TextBoxFor(x => x.Complemento, new { @class = "form-control", @required = "required", @placeholder = "Complemento" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Numero, new { @class = "col-lg-2 control-label", @for = "Numero" })
+            <div class="col-lg-4">
+                @Html.TextBoxFor(x => x.Numero, new { @class = "form-control", @required = "required", @placeholder = "Numero" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Cep, new { @class = "col-lg-2 control-label", @for = "CEP" })
+            <div class="col-lg-4">
+                @Html.TextBoxFor(x => x.Cep, new { @class = "form-control", @required = "required", @placeholder = "CEP" })
+            </div>
+        </div>
+
+    </div>
+
+    <div id="alerta-div" style="display: none;"></div>
+
+    <hr />
+    <div class="form-group">
+        <div class="col-lg-8 col-lg-offset-2">
+            <form method="post" action="@Url.Action("create", "cadastro")">
+                <button type="submit" class="btn btn-success">Salvar</button>
+                <a href="@Url.Action("index", "cadastro")" class="btn btn-danger">Cancelar</a>
+            </form>
+        </div>
+    </div>
+}

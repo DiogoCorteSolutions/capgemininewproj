@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="POC_CAModelStoreContainer" CdmEntityContainer="POC_CAEntities">
+    <EntitySetMapping Name="CADASTROes">
+      <EntityTypeMapping TypeName="POC_CAModel.CADASTRO">
+        <MappingFragment StoreEntitySet="CADASTRO">
+          <ScalarProperty Name="IdCadastro" ColumnName="IdCadastro" />
+          <ScalarProperty Name="PrimeiroNome" ColumnName="PrimeiroNome" />
+          <ScalarProperty Name="UltimoNome" ColumnName="UltimoNome" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Rua" ColumnName="Rua" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

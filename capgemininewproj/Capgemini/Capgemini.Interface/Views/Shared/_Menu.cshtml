@@ -1,0 +1,27 @@
+﻿
+<div class="container">
+    <div class="navbar-header">
+        <a href="@Url.Action("index", "Cadastro")" class="navbar-brand"></a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+            @{
+                if (Capgemini.Interface.Models.LoginModels.IsLogado())
+                {
+                   @Html.Partial("_Admin");
+                }
+            }
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="@Url.Action("informacoes", "home")">@(Capgemini.Interface.Models.LoginModels.IsLogado() ? Capgemini.Interface.Models.LoginModels.GetLoginModel().PrimeiroNome : string.Empty)</a></li>
+            <li><a href="@Url.Action("logoff", "login")">LogOff</a></li>
+        </ul>
+    </div>
+</div>
+
+

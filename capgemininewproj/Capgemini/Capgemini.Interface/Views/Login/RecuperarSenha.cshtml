@@ -1,0 +1,45 @@
+﻿@model Capgemini.DTO.CadastroDTO
+
+@{
+    ViewBag.Title = "RecuperarSenha";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+        <h3 class="animated bounceInDown">Recuperar Senha</h3>
+        <div class="login-box  clearfix animated flipInY">
+            <div class="login-logo">
+                <a href="#"><img src="@Url.Content("~/Content/login/img/livros.jpg")" alt="Company Logo" /></a>
+            </div>
+            <hr />
+            <div class="login-form">
+                @if (TempData["error"] != null)
+                {
+                    <div class="alert alert-error">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        @TempData["error"]
+                    </div>
+                }
+                else if (TempData["sucesso"] != null)
+                {
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        @TempData["sucesso"]
+                    </div>
+                }
+                <form action="@Url.Action("recuperarsenha", "login")" method="post">
+                    <p>Informe seu email.</p>
+                    @Html.TextBoxFor(x => x.Email, new { type = "email", placeholder = "Informe seu email", required = "required" })
+
+                    <button type="submit" class="btn btn-login btn-reset">Enviar</button>
+                </form>
+                <div class="login-links">
+                    <a href="@Url.Action("index", "login")">
+                        LogIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Capgemini.Interface.Models.Cadastro>
+@{
+    ViewBag.Title = "Lista de Usuário";
+}
+@*<h2>@ViewBag.Title</h2>
+
+<blockquote>
+    <p>@ViewBag.Title</p>
+    <small>Bem <cite title="Source Title">Vindo!!!</cite></small>
+</blockquote>*@
+
+<hr />
+
+@if (TempData["msgerror"] != null)
+{
+    <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="close" data-dismiss="alert"></button>
+        @TempData["msgerror"]
+    </div>
+
+}
+else if (TempData["msgsuccesso"] != null)
+{
+    <div class="alert alert-dismissible alert-success">
+        <button type="button" class="close" data-dismiss="alert"></button>
+        @TempData["msgsucesso"]
+    </div>
+}
+
+
+
+<table id="example" class="display" cellpadding="0" width="100% ">
+    <thead>
+        <tr>
+            <th style="text-align: center">Nome</th>
+            <th style="text-align: center">CPF</th>
+            <th style="text-align: center">Sexo</th>
+            <th style="text-align: center">Endereço</th>
+            <th style="text-align: center">Telefone</th>
+            <th style="text-align: center">Telefone 2</th>
+            <th></th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="text-align: center;">
+                <td>@item.PrimeiroNome</td>
+                <td>@item.Cpf</td>
+                <td>@item.Sexo</td>
+                <td>@item.Endereco</td>
+
+                <td>
+                    <a href="@Url.Action("edit", "cadastro", new { id = item.IdCadastro })" data-toggle="tooltip" title="Editar"><img width="20" src="~/Content/img/edit.png" /></a>
+                    <a href="@Url.Action("visualizar", "cadastro", new { id = item.IdCadastro })" data-toggle="tooltip" title="Visualizar"><img width="20" src="~/Content/img/view.png" /></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr>
+
+<div class="form-group">
+    <div> 
+        @* class="col-lg-8 col-lg-offset-2">*@
+        <form method="post" action="@Url.Action("create", "cadastro")">
+            <a href="@Url.Action("Create", "cadastro")" class="btn btn-warning">Cadastro</a>
+        </form>
+    </div>
+</div>

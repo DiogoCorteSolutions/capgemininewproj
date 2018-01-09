@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="POC_CAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CADASTRO">
+          <Key>
+            <PropertyRef Name="IdCadastro" />
+          </Key>
+          <Property Name="IdCadastro" Type="int" Nullable="false" />
+          <Property Name="PrimeiroNome" Type="varchar" MaxLength="200" />
+          <Property Name="UltimoNome" Type="varchar" MaxLength="200" />
+          <Property Name="CPF" Type="varchar" MaxLength="20" />
+          <Property Name="Senha" Type="varchar" MaxLength="100" />
+          <Property Name="Sexo" Type="varchar" MaxLength="10" />
+          <Property Name="Endereco" Type="varchar" MaxLength="200" />
+          <Property Name="Rua" Type="varchar" MaxLength="200" />
+          <Property Name="Numero" Type="varchar" MaxLength="100" />
+          <Property Name="Complemento" Type="varchar" MaxLength="100" />
+          <Property Name="CEP" Type="varchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityContainer Name="POC_CAModelStoreContainer">
+          <EntitySet Name="CADASTRO" EntityType="Self.CADASTRO" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="POC_CAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CADASTRO">
+          <Key>
+            <PropertyRef Name="IdCadastro" />
+          </Key>
+          <Property Name="IdCadastro" Type="Int32" Nullable="false" />
+          <Property Name="PrimeiroNome" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UltimoNome" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CPF" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sexo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Endereco" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Rua" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Complemento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="POC_CAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CADASTROes" EntityType="Self.CADASTRO" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="POC_CAModelStoreContainer" CdmEntityContainer="POC_CAEntities">
+          <EntitySetMapping Name="CADASTROes">
+            <EntityTypeMapping TypeName="POC_CAModel.CADASTRO">
+              <MappingFragment StoreEntitySet="CADASTRO">
+                <ScalarProperty Name="IdCadastro" ColumnName="IdCadastro" />
+                <ScalarProperty Name="PrimeiroNome" ColumnName="PrimeiroNome" />
+                <ScalarProperty Name="UltimoNome" ColumnName="UltimoNome" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="Rua" ColumnName="Rua" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
